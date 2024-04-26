@@ -9,6 +9,8 @@ class Users::RecruitingsController < ApplicationController
     @recruiting = Recruiting.new(recruiting_params)
     if @recruiting.save
       redirect_to users_recruiting_path(@recruiting.id)
+    else
+      render :index
     end
   end
   
@@ -17,12 +19,22 @@ class Users::RecruitingsController < ApplicationController
   end
   
   def edit
+    @recruiting = Recruiting.find(params[:id])
   end
   
   def update
+    @recruiting = Recruiting.find(params[:id])
+    if @recruiting.update(recruiting_params)
+      redirect_to users_recruiting_path(@recruiting.id)
+    else
+      render :edit
+    end
   end
   
   def destroy
+    recruiting = Recruiting.find(params[:id])
+    recruiting.destroy
+    redirect_to users_recruitings_path
   end
  
  

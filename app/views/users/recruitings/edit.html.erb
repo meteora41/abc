@@ -1,0 +1,35 @@
+<%= form_with model: @recruiting, url: users_recruiting_path(@recruiting.id) do |f| %>
+
+<div>
+  タイトル
+</div>
+<div>
+  <%= f.text_field :title %>
+</div>
+
+<div>
+  コメント
+</div>
+<div>
+  <%= f.text_area :comment %>
+</div>
+
+<div>
+  希望日時
+</div>
+<div>
+  <%= f.datetime_field :datetime %>
+</div>
+
+<div>
+  集合場所
+</div>
+<div>
+  <%= f.text_field :place %>
+</div>
+
+<div>
+  <%= f.submit '保存' %>
+</div>
+
+<% end %>

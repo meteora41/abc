@@ -9,3 +9,10 @@
 
     <div class= "mt-3 mr-5 d-flex justify-content-center">集合場所</div>
     <div class= "ml-5 pl-5 my-2 d-flex justify-content-center font-weight-bold" style= "color: red;"><%= @recruiting.place %></div>
+
+    <div>
+      <%= button_to "編集", edit_users_recruiting_path(@recruiting.id), method: :get %>
+    </div>
+    <div>
+      <%= button_to "削除", users_recruiting_path(@recruiting.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    </div>
